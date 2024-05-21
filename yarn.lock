@@ -2395,7 +2395,7 @@
     memoizerific "^1.11.3"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-controls@8.1.1":
+"@storybook/addon-controls@^8.1.1", "@storybook/addon-controls@8.1.1":
   version "8.1.1"
   resolved "https://registry.npmjs.org/@storybook/addon-controls/-/addon-controls-8.1.1.tgz"
   integrity sha512-KJXW/hjIWM+VLqqUAvdGIkX7hTDs8FtQOuUFSC/FPDqKveUoWz0hd+WaoT9HhNF8gyzFXYACoeb9XkQVVcDATA==
