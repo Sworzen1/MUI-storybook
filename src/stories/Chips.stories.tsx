@@ -1,55 +1,68 @@
 import React from "react";
-import { Chip } from "@mui/material";
 import { Meta, StoryFn } from "@storybook/react";
+import Chip from "@mui/material/Chip";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "../theme";
 
 export default {
+	title: "Components/Chip",
 	component: Chip,
-	title: "Chip",
-	tags: ["autodocs"],
+	argTypes: {
+		variant: {
+			control: { type: "select" },
+			options: ["default", "info", "progress", "finished", "error"],
+		},
+		size: {
+			control: { type: "select" },
+			options: ["small", "medium"],
+		},
+		label: { control: "text" },
+		disabled: { control: "boolean" },
+	},
 } as Meta;
 
-const Template: StoryFn = args => <Chip {...args} />;
+const Template: StoryFn<any> = args => (
+	<ThemeProvider theme={theme}>
+		<Chip {...args} />
+	</ThemeProvider>
+);
+
+export const Default = Template.bind({});
+Default.args = {
+	variant: "default",
+	size: "medium",
+	label: "Default Chip",
+	disabled: false,
+};
 
 export const Info = Template.bind({});
 Info.args = {
-	label: "Info Chip",
-	color: "default",
+	variant: "info",
 	size: "medium",
-};
-Info.argTypes = {
-	label: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium"] } },
+	label: "Info Chip",
+	disabled: false,
 };
 
 export const Progress = Template.bind({});
 Progress.args = {
-	label: "Progress Chip",
-	color: "default",
+	variant: "progress",
 	size: "medium",
-};
-Progress.argTypes = {
-	label: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium"] } },
+	label: "Progress Chip",
+	disabled: false,
 };
 
 export const Finished = Template.bind({});
 Finished.args = {
-	label: "Finished Chip",
-	color: "default",
+	variant: "finished",
 	size: "medium",
-};
-Finished.argTypes = {
-	label: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium"] } },
+	label: "Finished Chip",
+	disabled: false,
 };
 
 export const Error = Template.bind({});
 Error.args = {
-	label: "Error Chip",
-	color: "default",
+	variant: "error",
 	size: "medium",
-};
-Error.argTypes = {
-	label: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium"] } },
+	label: "Error Chip",
+	disabled: false,
 };

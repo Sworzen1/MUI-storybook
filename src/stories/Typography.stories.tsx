@@ -1,171 +1,242 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
 import { Meta, StoryFn } from "@storybook/react";
+import Typography from "@mui/material/Typography";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "../theme";
 
 export default {
-	title: "Typography",
+	title: "Components/Typography",
 	component: Typography,
-	tags: ["autodocs"],
+	argTypes: {
+		variant: {
+			control: { type: "select" },
+			options: [
+				"displayXL",
+				"displayL",
+				"displayM",
+				"displayS",
+				"headlineL",
+				"headlineM",
+				"headlineS",
+				"titleSemiL",
+				"titleMediumL",
+				"titleRegularL",
+				"titleSemiBig",
+				"titleMediumBig",
+				"titleM",
+				"titleS",
+				"bodyRegularL",
+				"bodyMediumL",
+				"bodySemiL",
+				"bodyRegularM",
+				"bodyMediumM",
+				"bodySemiM",
+				"bodyRegularS",
+				"bodyMediumS",
+				"bodySemiS",
+				"labelL",
+				"labelM",
+				"labelS",
+			],
+		},
+		text: { control: "text" },
+		color: { control: "color" },
+	},
 } as Meta;
 
-const Template: StoryFn = args => (
-	<Box>
-		<Typography {...args}>Sample Text</Typography>
-	</Box>
+const Template: StoryFn<any> = args => (
+	<ThemeProvider theme={theme}>
+		<Typography variant={args.variant} style={{ color: args.color }}>
+			{args.text}
+		</Typography>
+	</ThemeProvider>
 );
+
+export const Default = Template.bind({});
+Default.args = {
+	variant: "bodyRegularL",
+	text: "Sample Text",
+	color: theme.palette.fadedPurple[800],
+};
 
 export const DisplayXL = Template.bind({});
 DisplayXL.args = {
 	variant: "displayXL",
-	children: "Display XL",
+	text: "Display XL Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const DisplayL = Template.bind({});
 DisplayL.args = {
 	variant: "displayL",
-	children: "Display L",
+	text: "Display L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const DisplayM = Template.bind({});
 DisplayM.args = {
 	variant: "displayM",
-	children: "Display M",
+	text: "Display M Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const DisplayS = Template.bind({});
 DisplayS.args = {
 	variant: "displayS",
-	children: "Display S",
+	text: "Display S Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const HeadlineL = Template.bind({});
 HeadlineL.args = {
 	variant: "headlineL",
-	children: "Headline L",
+	text: "Headline L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const HeadlineM = Template.bind({});
 HeadlineM.args = {
 	variant: "headlineM",
-	children: "Headline M",
+	text: "Headline M Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const HeadlineS = Template.bind({});
 HeadlineS.args = {
 	variant: "headlineS",
-	children: "Headline S",
+	text: "Headline S Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const TitleSemiL = Template.bind({});
 TitleSemiL.args = {
 	variant: "titleSemiL",
-	children: "Title Semi L",
+	text: "Title Semi L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const TitleMediumL = Template.bind({});
 TitleMediumL.args = {
 	variant: "titleMediumL",
-	children: "Title Medium L",
+	text: "Title Medium L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const TitleRegularL = Template.bind({});
 TitleRegularL.args = {
 	variant: "titleRegularL",
-	children: "Title Regular L",
+	text: "Title Regular L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const TitleSemiBig = Template.bind({});
 TitleSemiBig.args = {
 	variant: "titleSemiBig",
-	children: "Title Semi Big",
+	text: "Title Semi Big Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const TitleMediumBig = Template.bind({});
 TitleMediumBig.args = {
 	variant: "titleMediumBig",
-	children: "Title Medium Big",
+	text: "Title Medium Big Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const TitleM = Template.bind({});
 TitleM.args = {
 	variant: "titleM",
-	children: "Title M",
+	text: "Title M Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const TitleS = Template.bind({});
 TitleS.args = {
 	variant: "titleS",
-	children: "Title S",
+	text: "Title S Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodyRegularL = Template.bind({});
 BodyRegularL.args = {
 	variant: "bodyRegularL",
-	children: "Body Regular L",
+	text: "Body Regular L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodyMediumL = Template.bind({});
 BodyMediumL.args = {
 	variant: "bodyMediumL",
-	children: "Body Medium L",
+	text: "Body Medium L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodySemiL = Template.bind({});
 BodySemiL.args = {
 	variant: "bodySemiL",
-	children: "Body Semi L",
+	text: "Body Semi L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodyRegularM = Template.bind({});
 BodyRegularM.args = {
 	variant: "bodyRegularM",
-	children: "Body Regular M",
+	text: "Body Regular M Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodyMediumM = Template.bind({});
 BodyMediumM.args = {
 	variant: "bodyMediumM",
-	children: "Body Medium M",
+	text: "Body Medium M Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodySemiM = Template.bind({});
 BodySemiM.args = {
 	variant: "bodySemiM",
-	children: "Body Semi M",
+	text: "Body Semi M Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodyRegularS = Template.bind({});
 BodyRegularS.args = {
 	variant: "bodyRegularS",
-	children: "Body Regular S",
+	text: "Body Regular S Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodyMediumS = Template.bind({});
 BodyMediumS.args = {
 	variant: "bodyMediumS",
-	children: "Body Medium S",
+	text: "Body Medium S Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const BodySemiS = Template.bind({});
 BodySemiS.args = {
 	variant: "bodySemiS",
-	children: "Body Semi S",
+	text: "Body Semi S Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const LabelL = Template.bind({});
 LabelL.args = {
 	variant: "labelL",
-	children: "Label L",
+	text: "Label L Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const LabelM = Template.bind({});
 LabelM.args = {
 	variant: "labelM",
-	children: "Label M",
+	text: "Label M Text",
+	color: theme.palette.fadedPurple[800],
 };
 
 export const LabelS = Template.bind({});
 LabelS.args = {
 	variant: "labelS",
-	children: "Label S",
+	text: "Label S Text",
+	color: theme.palette.fadedPurple[800],
 };

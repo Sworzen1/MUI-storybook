@@ -1,115 +1,103 @@
 import React from "react";
-import { Button } from "@mui/material";
 import { Meta, StoryFn } from "@storybook/react";
+import Button from "@mui/material/Button";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "../theme";
 
 export default {
+	title: "Components/Button",
 	component: Button,
-	title: "Button",
-	tags: ["autodocs"],
+	argTypes: {
+		variant: {
+			control: { type: "select" },
+			options: ["outlined", "contained", "ghost", "link"],
+		},
+		size: {
+			control: { type: "select" },
+			options: ["small", "medium", "large"],
+		},
+		disabled: { control: "boolean" },
+		children: { control: "text" },
+		backgroundColor: {
+			control: "color",
+			if: { arg: "variant", eq: "contained" },
+		},
+		textColor: { control: "color" },
+	},
 } as Meta;
 
-const Template: StoryFn = args => <Button {...args} />;
-
-export const Outlined = Template.bind({});
-Outlined.args = {
-	variant: "outlined",
-	children: "Outlined Button",
-};
-Outlined.argTypes = {
-	variant: { control: "text" },
-	children: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium", "large"] } },
-	color: {
-		control: {
-			type: "select",
-			options: [
-				"default",
-				"primary",
-				"secondary",
-				"error",
-				"info",
-				"success",
-				"warning",
-			],
-		},
-	},
-	disabled: { control: "boolean" },
+const getSizeStyles = size => {
+	switch (size) {
+		case "small":
+			return {
+				fontSize: "0.75rem",
+				padding: "4px 8px",
+			};
+		case "medium":
+			return {
+				fontSize: "0.875rem",
+				padding: "6px 16px",
+			};
+		case "large":
+			return {
+				fontSize: "1rem",
+				padding: "8px 24px",
+			};
+		default:
+			return {};
+	}
 };
 
-export const Contained = Template.bind({});
-Contained.args = {
+const Template: StoryFn<any> = args => (
+	<ThemeProvider theme={theme}>
+		<Button
+			{...args}
+			style={{
+				backgroundColor:
+					args.variant === "contained" ? args.backgroundColor : "transparent",
+				color: args.textColor,
+				...(args.variant === "link" && getSizeStyles(args.size)),
+			}}
+		/>
+	</ThemeProvider>
+);
+
+export const Default = Template.bind({});
+Default.args = {
 	variant: "contained",
-	children: "Contained Button",
-};
-Contained.argTypes = {
-	variant: { control: "text" },
-	children: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium", "large"] } },
-	color: {
-		control: {
-			type: "select",
-			options: [
-				"default",
-				"primary",
-				"secondary",
-				"error",
-				"info",
-				"success",
-				"warning",
-			],
-		},
-	},
-	disabled: { control: "boolean" },
+	size: "medium",
+	disabled: false,
+	children: "Button",
+	backgroundColor: theme.palette.primary.main,
+	textColor: theme.palette.arcticWhite.main,
 };
 
 export const Ghost = Template.bind({});
 Ghost.args = {
 	variant: "ghost",
-	children: "Ghost Button",
+	size: "medium",
+	disabled: false,
+	children: "Button",
+	backgroundColor: "transparent",
+	textColor: theme.palette.primary.main,
 };
-Ghost.argTypes = {
-	variant: { control: "text" },
-	children: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium", "large"] } },
-	color: {
-		control: {
-			type: "select",
-			options: [
-				"default",
-				"primary",
-				"secondary",
-				"error",
-				"info",
-				"success",
-				"warning",
-			],
-		},
-	},
-	disabled: { control: "boolean" },
+
+export const Outlined = Template.bind({});
+Outlined.args = {
+	variant: "outlined",
+	size: "medium",
+	disabled: false,
+	children: "Button",
+	backgroundColor: "transparent",
+	textColor: theme.palette.primary.main,
 };
 
 export const Link = Template.bind({});
 Link.args = {
 	variant: "link",
-	children: "Link Button",
-};
-Link.argTypes = {
-	variant: { control: "text" },
-	children: { control: "text" },
-	size: { control: { type: "select", options: ["small", "medium", "large"] } },
-	color: {
-		control: {
-			type: "select",
-			options: [
-				"default",
-				"primary",
-				"secondary",
-				"error",
-				"info",
-				"success",
-				"warning",
-			],
-		},
-	},
-	disabled: { control: "boolean" },
+	size: "medium",
+	disabled: false,
+	children: "Button",
+	backgroundColor: "transparent",
+	textColor: theme.palette.primary.main,
 };
