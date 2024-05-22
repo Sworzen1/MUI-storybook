@@ -15,7 +15,6 @@ export default {
 			options: ["small", "medium"],
 		},
 		label: { control: "text" },
-		disabled: { control: "boolean" },
 	},
 } as Meta;
 
@@ -28,7 +27,6 @@ Info.args = {
 	variant: "info",
 	size: "medium",
 	label: "Info Chip",
-	disabled: false,
 };
 
 export const Progress = Template.bind({});
@@ -36,7 +34,6 @@ Progress.args = {
 	variant: "progress",
 	size: "medium",
 	label: "Progress Chip",
-	disabled: false,
 };
 
 export const Finished = Template.bind({});
@@ -44,7 +41,6 @@ Finished.args = {
 	variant: "finished",
 	size: "medium",
 	label: "Finished Chip",
-	disabled: false,
 };
 
 export const Error = Template.bind({});
@@ -52,5 +48,4 @@ Error.args = {
 	variant: "error",
 	size: "medium",
 	label: "Error Chip",
-	disabled: false,
 };
