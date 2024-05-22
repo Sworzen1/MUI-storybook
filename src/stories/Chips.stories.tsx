@@ -1,8 +1,6 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import Chip from "@mui/material/Chip";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "../theme";
 
 export default {
 	title: "Components/Chip",
@@ -21,19 +19,9 @@ export default {
 	},
 } as Meta;
 
-const Template: StoryFn<any> = args => (
-	<ThemeProvider theme={theme}>
-		<Chip {...args} />
-	</ThemeProvider>
-);
+const Template: StoryFn<any> = args => <Chip {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-	variant: "default",
-	size: "medium",
-	label: "Default Chip",
-	disabled: false,
-};
 
 export const Info = Template.bind({});
 Info.args = {

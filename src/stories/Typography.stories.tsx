@@ -1,7 +1,6 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import Typography from "@mui/material/Typography";
-import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../theme";
 
 export default {
@@ -45,11 +44,9 @@ export default {
 } as Meta;
 
 const Template: StoryFn<any> = args => (
-	<ThemeProvider theme={theme}>
-		<Typography variant={args.variant} style={{ color: args.color }}>
-			{args.text}
-		</Typography>
-	</ThemeProvider>
+	<Typography variant={args.variant} style={{ color: args.color }}>
+		{args.text}
+	</Typography>
 );
 
 export const Default = Template.bind({});
