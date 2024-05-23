@@ -12,7 +12,7 @@ export default {
 			options: ["default", "info", "progress", "finished", "error"],
 		},
 		size: {
-			control: { type: "select" },
+			control: { type: "radio" },
 			options: ["small", "medium"],
 		},
 		label: { control: "text" },
@@ -20,8 +20,6 @@ export default {
 } as Meta;
 
 const Template: StoryFn<any> = args => <Chip {...args} />;
-
-export const Default = Template.bind({});
 
 export const Info = Template.bind({});
 Info.args = {

@@ -13,7 +13,7 @@ export default {
 			options: ["outlined", "contained", "ghost", "link"],
 		},
 		size: {
-			control: { type: "select" },
+			control: { type: "radio" },
 			options: ["small", "medium", "large"],
 		},
 		children: { control: "text" },
@@ -39,7 +39,6 @@ const getButtonStyles = (
 	if (textColor) {
 		styles.color = textColor;
 	}
-
 	return styles;
 };
 
@@ -52,15 +51,11 @@ const Template: StoryFn<any> = args => (
 	/>
 );
 
-export const Default = Template.bind({});
-
 export const Contained = Template.bind({});
 Contained.args = {
 	variant: "contained",
 	size: "medium",
 	children: "Button",
-	backgroundColor: theme.palette.primary.main,
-	textColor: theme.palette.arcticWhite.main,
 };
 
 export const Ghost = Template.bind({});
@@ -68,8 +63,6 @@ Ghost.args = {
 	variant: "ghost",
 	size: "medium",
 	children: "Button",
-	backgroundColor: "transparent",
-	textColor: theme.palette.primary.main,
 };
 
 export const Outlined = Template.bind({});
@@ -77,8 +70,6 @@ Outlined.args = {
 	variant: "outlined",
 	size: "medium",
 	children: "Button",
-	backgroundColor: "transparent",
-	textColor: theme.palette.primary.main,
 };
 
 export const Link = Template.bind({});
@@ -86,6 +77,4 @@ Link.args = {
 	variant: "link",
 	size: "medium",
 	children: "Button",
-	backgroundColor: "transparent",
-	textColor: theme.palette.primary.main,
 };

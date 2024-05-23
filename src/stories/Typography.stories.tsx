@@ -46,8 +46,6 @@ const Template: StoryFn<any> = ({ text, ...args }) => (
 	<Typography {...args}>{text}</Typography>
 );
 
-export const Default = Template.bind({});
-
 export const DisplayXL = Template.bind({});
 DisplayXL.args = {
 	variant: "displayXL",
