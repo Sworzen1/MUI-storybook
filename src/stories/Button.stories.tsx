@@ -1,16 +1,80 @@
 import React from "react";
-import { Button } from "@mui/material";
+import { Meta, StoryFn } from "@storybook/react";
+import Button from "@mui/material/Button";
+import { theme } from "../theme";
 
 export default {
-  component: Button,
-  title: "Button",
-  tags: ["autodocs"],
+	title: "Components/Button",
+	component: Button,
+	tags: ["autodocs"],
+	argTypes: {
+		variant: {
+			control: { type: "select" },
+			options: ["outlined", "contained", "ghost", "link"],
+		},
+		size: {
+			control: { type: "radio" },
+			options: ["small", "medium", "large"],
+		},
+		children: { control: "text" },
+		backgroundColor: {
+			control: "color",
+			if: { arg: "variant", eq: "contained" },
+		},
+		textColor: { control: "color" },
+	},
+} as Meta;
+
+const getButtonStyles = (
+	variant: string,
+	backgroundColor: string,
+	textColor: string
+): React.CSSProperties => {
+	const styles: React.CSSProperties = {};
+
+	if (variant === "contained" && backgroundColor) {
+		styles.backgroundColor = backgroundColor;
+	}
+
+	if (textColor) {
+		styles.color = textColor;
+	}
+	return styles;
 };
 
-export const Outlined = () => <Button variant="outlined">dawdawd</Button>;
+const Template: StoryFn<any> = args => (
+	<Button
+		{...args}
+		style={{
+			...getButtonStyles(args.variant, args.backgroundColor, args.textColor),
+		}}
+	/>
+);
 
-export const Contained = () => <Button variant="contained">dawdawd</Button>;
+export const Contained = Template.bind({});
+Contained.args = {
+	variant: "contained",
+	size: "medium",
+	children: "Button",
+};
 
-export const Ghost = () => <Button variant="ghost">dawdawd</Button>;
+export const Ghost = Template.bind({});
+Ghost.args = {
+	variant: "ghost",
+	size: "medium",
+	children: "Button",
+};
 
-export const Link = () => <Button variant="link">dawdawd</Button>;
+export const Outlined = Template.bind({});
+Outlined.args = {
+	variant: "outlined",
+	size: "medium",
+	children: "Button",
+};
+
+export const Link = Template.bind({});
+Link.args = {
+	variant: "link",
+	size: "medium",
+	children: "Button",
+};
