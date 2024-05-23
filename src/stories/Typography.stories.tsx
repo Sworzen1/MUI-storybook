@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 export default {
 	title: "Components/Typography",
 	component: Typography,
+	tags: ["autodocs"],
 	argTypes: {
 		variant: {
 			control: { type: "select" },

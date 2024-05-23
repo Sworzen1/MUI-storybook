@@ -5,6 +5,7 @@ import Chip from "@mui/material/Chip";
 export default {
 	title: "Components/Chip",
 	component: Chip,
+	tags: ["autodocs"],
 	argTypes: {
 		variant: {
 			control: { type: "select" },

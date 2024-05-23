@@ -6,6 +6,7 @@ import { theme } from "../theme";
 export default {
 	title: "Components/Button",
 	component: Button,
+	tags: ["autodocs"],
 	argTypes: {
 		variant: {
 			control: { type: "select" },
