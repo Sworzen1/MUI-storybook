@@ -46,10 +46,6 @@ const Template: StoryFn<any> = ({ text, ...args }) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-	variant: "bodyRegularL",
-	text: "Sample Text",
-};
 
 export const DisplayXL = Template.bind({});
 DisplayXL.args = {

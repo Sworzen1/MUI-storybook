@@ -52,7 +52,9 @@ const Template: StoryFn<any> = args => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
+
+export const Contained = Template.bind({});
+Contained.args = {
 	variant: "contained",
 	size: "medium",
 	children: "Button",
